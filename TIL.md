@@ -107,3 +107,53 @@ print(f'현재 코스피 지수는 {result1}입니다. S&P500 지수는 {result2
 
 
 
+-----
+
+### 예제: 네이버 쇼핑 검색
+
+```python
+import requests
+
+# naver 요청 시 필요 요소
+naver_client_id = "~~~~~"
+naver_client_secret = "~~~~~"
+
+naver_url = "https://openapi.naver.com/v1/search/shop.json?query="
+
+# 헤더 생성
+headers = {
+    'X-Naver-Client-Id': naver_client_id,
+    'X-Naver-Client-Secret': naver_client_secret
+}
+
+# 쿼리 작성
+query = "라이젠 노트북"
+
+product = requests.get(naver_url+query, headers = headers).json()['items'][0]
+product_name = product['title']
+product_price = product['lprice']
+product_link = product['link']
+
+# 검색결과 출력
+message = f"{product_name}\n{product_price}\n{product_link}"
+print(message)
+
+# 텔레그램 챗봇 기본 설정
+tele_token = "~~~~~"
+tele_url = f"https://api.telegram.org/bot{tele_token}"
+
+# chat_id 가져오기
+updates_url = f"{tele_url}/getUpdates"
+response = requests.get(updates_url).json()
+chat_id = response.get('result')[0].get('message').get('chat').get('id')
+
+######
+
+# 보낼 메시지 작성
+text = f"Python으로 보낸 메시지입니다.\n" + message
+
+# 메시지 전달
+message_url = f"{tele_url}/sendMessage?chat_id={chat_id}&text={text}"
+requests.get(message_url)
+```
+
