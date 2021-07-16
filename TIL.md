@@ -29,7 +29,7 @@ git is not...
 * Command: 명령어
 * Path 경로
 
-### 명령어
+### git bash 명령어
 
 touch
 
@@ -60,11 +60,101 @@ cf. . ..
 
 ## git
 
-### gitignore
+working directory > staging area > commits || github
 
-git으로 관리될 필요가 없는 (ex. 게시가 불필요한 시스템 파일들) 것들 관리
+add, commit, push/pull
+
+clone pull
+
+branch
+
+git reflog (전체 log)
+
+#### branch
+
+git checkout branch명
+
+git branch 새branch명
+
+git branch
+
+git branch -d 지울branch명
+
+git merge branch명
+
+#### merge
+
+merge는 세가지
+
+1. Fast-forward
+2. 겹치지 않는 merge
+3. conflict
+
+(참고: branch rebase: 비권장사항)
+
+git merge --no-ff
 
 
+
+#### reset
+
+reset은 세가지
+
+1. soft
+2. mixed
+3. hard
+
+git reset --resetoption commitID
+
+soft: working dir, staging area 는 그대로인 채 repository만 해당 commit으로 돌아감 (HEAD가 해당 commit을 가리킴)
+
+mixed: (기본 옵션) staging area와 repository가 돌아감
+
+잘못된 것이 있을 때 mixed reset을 하고, 수정하고 add commit push하면 됨
+
+hard: wdir까지 전부 다 돌아감 (복구불가능하지 않음)
+
+(특정 시점으로 hard reset 가능)
+
+용어:
+
+* fast-forward
+* conflict
+* head (in branch)
+
+
+
+git revert
+
+(reset으로 돌아갔을 때 push할 수 없을수도 있음: git이 이전 버전을 push 막음)
+
+git push -f (강제 push: 비권장하나 필요할수도)
+
+#### Github Flow Models:
+
+Shared Repository Model: 공동협업모델: 
+
+Fork & Pull Model: 오픈소스모델:
+
+Shared RepositoryModel
+
+​	Repository Owner (관리자) / Collaborator (허가받아 PUSH 권한 생김)
+
+
+
+### .gitignore
+
+git으로 관리될 필요가 없는 (ex. 게시가 불필요한 시스템 파일들, **repository에 절대 올라가면 안 되는 개인정보&토큰 등!** ) 것들 관리
+
+**push를 할 예정이라면 git init 하자마자 만드는 것 권장**
+
+touch .gitignore
+
+git으로 관리되지 않을 blacklist 작성
+
+폴더째로도 가능
+
+https://gitignore.io 참조
 
 
 
