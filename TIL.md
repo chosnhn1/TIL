@@ -725,7 +725,14 @@ radius = 10
 
 실행가능한 최소한의 코드 단위
 
-Every expression is statement
+Every expression is statement 
 
 
 
+#### Python에서의 펠린드롬: [::-1]
+
+list[::-1]
+
+#### 두 리스트 사이에 항목 끼워넣기
+
+print[*a, 'w', *c]
