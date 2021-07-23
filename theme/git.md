@@ -64,3 +64,13 @@ $ git status
 
 ## git log
 
+## git remote add \<name> \<url>
+
+
+## git push \<name> \<branch>
+https://git-scm.com/docs/git-push
+
+## git clone \<url>
+
+## git pull \<> \<>
+
