@@ -2,8 +2,6 @@ Today I Learned....
 
 [internal link test][test.md]
 
-
-
 # git
 
 ~~git gud!!!~~
@@ -19,8 +17,6 @@ git is... **분산형 버전 관리 프로그램**
 git is not...
 
 * github (git에 특화된 저장소 서비스): ~gitlab bitbucket
-
-
 
 
 
