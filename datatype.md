@@ -169,6 +169,8 @@ sep이 없다면 whitespace로 나눔
 
 
 
+##### .isdecimal() .isdigit() .isnumeric()
+
 
 
 
@@ -210,7 +212,7 @@ insert x at i
 
 cf. i가 len(list)보다 길다면? error 없이 가능한 끝에 넣어버림
 
-
+*x에 len(i) 대신 -1을 넣는다면? 마지막이 아니라 막전*임에 주의
 
 ##### .remove(x)
 
@@ -263,6 +265,20 @@ cf. 없다면? 0을 반환
 
 ```
 ```
+
+**리스트에서 모든 해당 값을 삭제하기**
+
+```python
+l = [1, 2, 1, 2, 4, 5]
+tgt = 1
+for i in range(l.count(tgt)):
+    l.remove(tgt)
+print(l)
+```
+
+
+
+
 
 ##### .sort()
 
@@ -349,6 +365,12 @@ print(a, b)
 
 
 ### List comprehension
+
+일명 "파이썬의 꽃": 가독성이 확보된 상황에서 쓰기
+
+indented 반복문 vs. comprehension: 개취?
+
+
 
 ```python
 even_list = []
