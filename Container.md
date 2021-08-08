@@ -2,7 +2,7 @@
 
 여러 개의 값을 저장할 수 있는 객체.
 
-\#Container
+Datatype that can contains other data.
 
 * Is it have a order?
   * Sequence Container
@@ -15,9 +15,11 @@
     * set
     * dictionary
 
+
+
 Sequence != Sorted
 
-
+Non-Sequencial != Not Iterable
 
 # Sequence Container
 
