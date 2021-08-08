@@ -441,6 +441,17 @@ print(result, type(result))
 
 iterable들을 모아 튜플을 원소로 하는 zip을 반환
 
+*zipper를 연상하면 좋을듯*
+
+```python
+girls = ['jane', 'ashley', 'mary']
+boys = ['justin', 'eric', 'david']
+
+pair = list(zip(girls, boys))
+print(pair)
+# [('jane', 'justin'), ('ashley', 'eric'), ('mary', 'david')]
+```
+
 
 
 # set
