@@ -339,11 +339,111 @@ def binSearch(a, key)
 	return False
 ```
 
+```python
+def binarySearch(a, key):
+    start = 0
+    end = len(a) -1
+    while start <= end:
+        middle = (start + end) // 2
+        if a[middle] == key:
+            return middle
+        elif a[middle] > key:
+            end = middle - 1
+        else:
+            start = middle + 1
+    return -1
+```
+
+### binary search w/ 재귀함수
+
+```python
+def binSearch2(a, low, high, key):
+    if low > high:
+        return False
+    else:
+        middle = (low + high) // 2
+        if key == a[middle]:
+            return True
+        elif key < a[middle]:
+            return binSearch2(a, low, )
+```
 
 
 
+## Index
+
+테이블에 대한 동작 속도를 높여주는 자료 구조
+
+key-field
+
+대량 데이터의 성능저하 문제 해결을 위한 배열 인덱스
 
 
+
+# Selection Sort: 선택 정렬
+
+* 주어진 리스트 중 최소값을 찾는다
+* 그 값을 리스트의 맨 앞에 위치한 값과 교환한다
+* 맨 처음 위치를 제외한 나머지 리스트를 대상으로 위의 과정을 반복한다.
+* 시간 복잡도: O(n^2)
+* 구간 시작이 증가
+
+
+
+```python
+def SelectionSort(a):
+    for i in range(0, len(a)-1):
+        # 구간의 시작
+        min = i
+        # 맨 앞을 제일 작다고 가정
+        for j in range(i+1, len(a)):
+            if a[min] > a[j]:
+                min = j
+                
+        # if a[i] != a[min]을 만들면?
+        # 검사하는 과정이 길어져서... 그냥 바꾸자
+        a[i], a[min] = a[min], a[i]
+        # 치환과정
+```
+
+
+
+참고: 버블정렬
+
+```
+for i : N-1 -> 1
+    for j : 0 -> i-1
+        if A[j] > A[j+1]
+        	A[j] <-> A[j+1]
+```
+
+
+
+# Selection Algorithm
+
+저장되어 있는 자료에서 k번째 큰/작은 원소를 찾는 방법
+
+정렬 & 원소 접근
+
+
+
+## find kth small
+
+k가 비교적 작을 때 유용하며 O(kn)의 수행시간 필요
+
+1번부터 k번째까지 작은 원소를 찾아 앞쪽으로 이동시키고 배열의 k번째를 반환 (어차피 그 뒤로는 필요없을테니)
+
+
+
+cf. 나선채우기 문제
+
+* [0, -1]에서 시작하기
+* 가장자리 & 이미 채워진 곳
+* 열+ / 행 + / 열 - / 행 - / 열+ ... (길이 감소)
+
+
+
+dir = (dir +1) % 4
 
 ----
 
