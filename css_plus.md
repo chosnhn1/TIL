@@ -57,6 +57,14 @@ MDN "legacy layout"
 
 container는 display: flex 혹은 inline-flex로 받아 설정됨
 
+```css
+.container {
+    display: flex;
+}
+```
+
+
+
 정렬 컨트롤을 container가 수행
 
 item은 container의 컨텐츠
@@ -118,7 +126,7 @@ justify / align
 
 align-content: 여러 줄을 동시 정렬
 
-align- items: 한 줄을 정렬
+align-items: 한 줄을 정렬
 
 align-self: 요소 하나를 정렬
 

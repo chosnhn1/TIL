@@ -1,37 +1,23 @@
 # HTML
 
-W3C (World Wide Web Consortium)
+Hypertext Markup Language
 
-WHATWG >> 웹 표준 제정의 주도자
+웹 컨텐츠의 의미와 구조를 정의할 때 사용하는 마크업 언어
 
-
-
-HTML: HyperText Markup Language
-
-Hypertext: texts are linked via hyperlinks
-
-HTTP: HyperText Transfer Protocol
-
-
+* Hypertext: Texts are linked via hyperlinks
+* Markup Language: Language for representing document and data structure; not a programming language
+  * cf. no control of flow (e.g. loops)
 
 ```html
 <h1>
     Sebastian Vettel
 </h1>
-Sebastian Vettel is German F1 driver.
+Sebastian Vettel is a German F1 driver.
 <h2>
     Career
 </h2>
-Sebastian Vettel made his debut in 
+Sebastian Vettel was 2010, 2011, 2012 and 2013 FIA F1 Driver champion.
 ```
-
-Markup language: 태그 등으로 문서, 데이터의 구조를 명시하는 언어
-
-프로그래밍 언어는 아니다 (조건, 반복 등 흐름제어 불가)
-
-웹 컨텐츠의 의미와 구조를 정의
-
-*.html
 
 
 
@@ -50,11 +36,13 @@ Markup language: 태그 등으로 문서, 데이터의 구조를 명시하는 �
 </html>
 ```
 
-Open Graph Protocol
+* Web Standard
+
+W3C (World Wide Web Consortium) & WHATWG
 
 
 
-Document Object Model (DOM) Tree
+* Document Object Model (DOM) Tree
 
 DOM provides structured representation of documents
 
@@ -87,7 +75,7 @@ Attributes
 
 Different tags have different attributes
 
-주의: no spaces & doublequotes are convention
+주의: no spaced '=' and using doublequotes to assign (convention)
 
 * additional infos
 * used in starting tags
@@ -185,7 +173,11 @@ https://developer.mozilla.org/ko/docs/Web/HTML/Element/Input
 
 
 
-# CSS: Cascading Style Sheets
+# CSS
+
+Cascading Style Sheets
+
+사용자에게 문서를 표시하는 방법을 지정하는 언어
 
 deciding style and layouts of HTML page
 
@@ -375,7 +367,9 @@ content padding margin border
 }
 ```
 
-Box Shorthand
+### Box Shorthand
+
+#### 방향 Shorthand
 
 ```css
 .margin-2 {
@@ -389,7 +383,11 @@ Box Shorthand
 }
 ```
 
-상하 / 상하-좌우 / 상부터 clockwise
+전부 / 상하-좌우 / 상-좌우-하 / 상부터 clockwise (상우하좌)
+
+#### 요소 Shorthand
+
+border-width, border-style, border-color: border 요소로 붙여 쓸 수 있음
 
 ```css
 .border {
@@ -401,11 +399,14 @@ non-order-sensitive (`black dashed 2px ;`? OK)
 
 
 
-CSS는 넓이를 안쪽 contents 기준으로 잡는다
+### Border-Boxing
 
-border, padding이 붙어 늘어나는 것을 감안해야 하는가?
+CSS는 넓이를 안쪽 contents 기준으로 잡는다 (box를 100으로 잡고 싶어도, CSS는 여기에 border, padding을 덧붙여나간다)
 
-border-box 적용하기 (기준점을 border로 옮기기)
+* Content-Box (Default)
+* Border-Box
+
+border, padding이 붙어 늘어나는 것을 감안해야 하는가?: border-box 적용하기 (기준점을 border로 옮기기)
 
 ```css
 .box-sizing {
@@ -421,7 +422,7 @@ border-box 적용하기 (기준점을 border로 옮기기)
 
 
 
-마진 상쇄
+### 마진 상쇄
 
 block A의 top과 block B의 bottom에 적용된 각각의 margin이 둘 중 큰 마진 값으로 결합하게 되는 현상
 
@@ -431,21 +432,24 @@ block A의 top과 block B의 bottom에 적용된 각각의 margin이 둘 중 큰
 
 ## CSS Display
 
-Block: 줄 바꿈이 일어나는 요소
+* block
 
-div, ul, ol, li, p, hr, form 등
+  * 줄 바꿈이 일어나는 요소
+  * div, ul, ol, li, p, hr, form 등
+  * 기본은 너비의 100%
 
-inline: 줄바꿈이 일어나지 않는 요소
+* inline
 
-line-height로 상하여백을 지정
+  * 줄 바꿈이 일어나지 않는 요소
+  * line-height로 상하여백을 지정
+  * span, a, img, input, label, b, em, i, strong 등
 
-span a img input label, b, em, i, strong 등
+* none
 
+  * 해당 요소가 시각적으로 차지하는 공간을 0으로 만든다.
+  * cf. hidden
 
-
-Block
-
-기본은 너비의 100%
+  
 
 
 
@@ -463,17 +467,13 @@ inline처럼 한 줄에 표시 가능하지만 block처럼 width-height-margin �
 
 
 
-none
-
-해당 요소를 화면에 표시하지 않는다. (차지하는 공간 = 0)
-
-(vs. Hidden)
-
-
-
 ## CSS Position
 
 문서 상에서 요소를 배치하는 방법을 지정한다.
+
+static, relative, absolute, fixed 등
+
+
 
 static (default값)
 
@@ -495,6 +495,7 @@ static (default값)
   * 일반적 문서 흐름에서 제거됨, 레이아웃에서 공간을 차지하지 않게 됨
   * 가장 가까이 있는 non-static 조상 요소를 기준으로 이동 (없다면 body에 할당)
   * 위치를 부모에 맞추고 싶다면? absolute
+  * 주의: 반드시 static이 아닌 부모 요소를 활용하자 (최상위 body에 붙지 않도록)
 * fixed
   * 일반적 문서 흐름에서 제거됨, 레이아웃에서 공간을 차지하지 않게 됨
   * viewport만을 기준으로 이동
@@ -530,12 +531,6 @@ static (default값)
     right: 0;
 }
 ```
-
-
-
-absolute를 쓰기 전에 반드시...! 부모를 만들어야 한다
-
-(body에 붙지 않도록)
 
 
 
