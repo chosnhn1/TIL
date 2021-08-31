@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <ul>
+    {% for food in foods %}
+      <li>{{ food|upper }}</li>
+    {% endfor %}
+  </ul>
+
+  <p>{{ foods|join:", "}}</p>
+{% endblock content %}
+
