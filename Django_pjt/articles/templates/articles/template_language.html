@@ -56,7 +56,16 @@
   {% now "DATE_FORMAT" %} <br>
   {% now "SHORT_DATE_FORMAT" %}
   <hr>
-  {% now "Y년 m월 d일 (D) h시 i분" %}
+  {% now "Y년 m월 d일 (D) h시 i분" %} <br>
+  
+  {% load l10n %}
+
+{% localize off %}
+  {% now "Y년 m월 d일 (D) A h:i" %}
+{% endlocalize %}
+
+
+  {% now "Y년 m월 d일 (D) A h:i" %}
   <hr>
   {% now "Y" as current_year %}
   COPYRIGHT. {{ current_year }}
