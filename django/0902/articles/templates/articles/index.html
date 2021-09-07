@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="text-center">Articles의 index</h1>
+
+  <a href="{% url 'articles:new' %}">[게시글 작성]</a>
+
+  <br>
+
+  {% for article in articles %}
+    <p>Post number: {{ article.pk }}</p>
+    <p>Post Title: {{ article.title }}</p>
+    <p>Content: {{ article.content }}</p>
+    <a href="{% url 'articles:detail' article.pk %}">[Go to Details]</a>
+    <!-- variable routing할 값을 같이 넘겨주기 -->
+    <hr>
+  {% endfor %}
+
+{% endblock content %}
