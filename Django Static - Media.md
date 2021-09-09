@@ -1,6 +1,10 @@
-# Static
+* Static Files
+* Media Files
+* Image Upload and Resizing
 
-Static Files, Media Files, Image Upload and Resizing
+
+
+# Static
 
 //// 정적인 파일들 static files --------------------------------
 
@@ -184,7 +188,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     # ... the rest of your URLconf goes here ...
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 ```
 
 참고: https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -294,4 +300,20 @@ article.image.url **url로 받으세요 제발**
 django-imagekit 라이브러리 활용!
 
 
+
+
+
+----
+
+django-cleanup
+
+django.contrib.messages
+
+```python
+# pjt/settings.py
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
+# app/views.py
+
+```
 

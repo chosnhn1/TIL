@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% comment %} {% load bootstrap5 %} {% endcomment %}
+
+{% block content %}
+  {% comment %} <h2 class="fw-bold">New</h2> {% endcomment %}
+  <h2>New</h2>
+  <form action="{% url 'articles:create' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% comment %} {% bootstrap_form form %} {% endcomment %}
+    {{ form.as_p }}
+    <input type="submit" value="submit"> <br>
+    <a href="{% url 'articles:index' %}">BACK</a>
+  </form>
+{% endblock content %}

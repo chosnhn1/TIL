@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock css %}
+
+{% block content %}
+<h1>Crimson</h1>
+
+<img src="{% static 'articles/shiba.jpg' %}" alt="Shiba Inu">
+<h2 class="fw-bold">Articles</h2>
+<a class="text-decoration-none" href="{% url 'articles:create' %}">NEW</a>
+<hr>
+{% for article in articles %}
+  <h3 class="fw-bold">{{ article.pk }}</h3>
+  <h3 class="fw-bold">{{ article.title }}</h3>
+  <a class="text-decoration-none" href="{% url 'articles:detail' article.pk %}">DETAIL</a>
+  <hr>
+{% endfor %}
+{% endblock content %}
+
