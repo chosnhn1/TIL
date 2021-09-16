@@ -21,7 +21,11 @@ Authorization: You can do ~~~:
 
 *둘 구분하기*
 
+cf.
 
+401 Not Authenticated
+
+405 Forbidden
 
 
 

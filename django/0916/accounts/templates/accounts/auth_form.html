@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+{% comment %} 요청을 검토 {% endcomment %}
+{% if request.resolver_match.url_name == 'signup' %}
+  <h1>SIGN UP</h1>
+{% elif request.resolver_match.url_name == 'update' %}
+  <h1>UPDATE USER INFO</h1>
+{% elif request.resolver_match.url_name == 'change_password' %}
+  <h1>CHANGE PASSWORD</h1>
+{% else %}
+  <h1>LOGIN</h1>
+{% endif %}
+
+<form action="" method="POST">
+{% csrf_token %}
+{% bootstrap_form form %}
+{% buttons submit="입력" reset="Cancel" %}{% endbuttons %}
+</form>
+{% endblock content %}
