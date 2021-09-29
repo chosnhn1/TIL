@@ -1,6 +1,8 @@
 from django.shortcuts import redirect, render
 from .models import Article
 from .forms import ArticleForm
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_http_methods, require_POST
 
 # Create your views here.
 def index(request):
