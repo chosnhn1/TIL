@@ -529,3 +529,107 @@ Greedy Approach
 2. Si,m은 공집합이므로, am을 선택하면 공집합이 아닌 하위 문제 Sm,j가 남는다
 3. 1, 2과정을 반복한다
 
+```
+// A: (정렬된) 활동들의 집합
+// S: 선택된 활동들의 집합
+// s_i: 시작시간
+// f_i: 종료시간
+// (1<=i<= n)
+
+Sort A by Finish Time
+S <- {A_1}
+j <- 1
+// for i in 2 -> n:
+for i in j+1 -> n:
+	if s_i >= fj:
+		S <- S U {A_i}
+		j <- i
+```
+
+```
+// A: (정렬된) 활동들의 집합
+// S: 선택된 활동들의 집합
+// s_i: 시작시간
+// f_i: 종료시간
+// (1<=i<= n)
+
+def Recursive_Selection(i, j):
+	m <- i + 1
+	
+	# 아직 활동이 남아있고, 이전 활동 종료시점보다 시작시간이 이후인 활동
+	while m < j and s_m < f_i: // 종료시간이 가장 빠른 활동 선택
+		m <- m+1
+	if m < j:
+		return {a_m} U Recursive_Selection(m, j)
+	else:
+		return {}
+```
+
+
+
+## 탐욕 알고리즘의 필수 요소
+
+* Greedy Choice Property: 탐욕적 선택 속성
+  * 탐욕적 선택은 최적해로 갈 수 있음을 보여야 함
+* Optimal Substructure Property: 최적 부분 구조
+  * 최적화 문제를 정형화해야 함
+
+즉, 원문제의 최적해는 "탐욕적 선택 + 하위 문제의 최적해"임이 증명되어야 함
+
+
+
+## Greedy Approach and Dynamic Programming
+
+| Greedy                                            | DP                                               |
+| ------------------------------------------------- | ------------------------------------------------ |
+| 지역 최적 선택                                    | 매 단계 선택은 해결한 하위 문제 해를 기반으로 함 |
+| 하위 문제를 풀기 전에 탐욕적 선택이 먼저 이루어짐 | 하위 문제가 우선 해결됨                          |
+| Top-down                                          | Bottom-up                                        |
+| (일반적) 빠르고 간결                              | (비교적) 느리고 복잡                             |
+
+
+
+## 대표적 Greedy Algorithms
+
+* Prim
+* Kruskal
+* Dijkstra
+* Huffman tree & code
+
+
+
+## Baby-gin Revisited w/ Greedy
+
+counts 배열의 각 원소를 체크해서 
+
+
+
+```
+i <- 0, inp <- 0, tri <- 0, run <- 0
+inp <- input_6_numbers()
+c[12] <- {0, }
+
+while i < 6:
+	c[inp % 10] <- c[inp % 10] + 1
+	inp <- inp / 10
+	i++
+	
+
+i <- 0
+while i < 10:       // (and tri+run < 2) 
+	if c[i] >= 3:
+		c[i] <- c[i] -3
+		tri++
+		continue
+	if c[i] >= 1 and c[i + 1] >= and c[i + 2] >= 1:
+		c[i] <- c[i] - 1
+		c[i+1] <- c[i+1] - 1
+		c[i+2] <- c[i+2] - 1
+		run ++
+		continue
+	i++
+	
+if run + tri == 2: print('Baby-gin')
+else: print('lose')
+```
+
