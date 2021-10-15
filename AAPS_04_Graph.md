@@ -623,7 +623,7 @@ MST-Kruskal(G, w):
 # V: 정점 집합, U: 선택된 정점 집합
 
 Dijkstra(s, A, D):
-	U - {s};
+	U = {s};
 	
 	for all v:
 		D[v] = A[s][v]
