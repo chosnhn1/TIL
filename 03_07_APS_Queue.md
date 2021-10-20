@@ -1,9 +1,12 @@
-* 선형큐
-* 원형큐
-* 연결큐
-* 우선순위 큐
-* 큐의 활용: Buffer
-* BFS
+* Queue
+* Types of Queue
+  * Linear Queue: 선형큐
+  * Circular Queue: 원형큐
+  * Linked Queue: 연결큐
+  * Priority Queue: 우선순위 큐
+* Cases of Applied Queue: 큐의 활용
+  * Buffer
+  * Breadth First Search (BFS): 너비 우선 탐색
 
 # Queue
 
@@ -15,7 +18,14 @@ front of the queue: only pop
 
 
 
-## Structure of Queue, 
+## Structure of Queue
+
+```
+
+Queue [ 0 1 2 1 2 3 2 1 4 5 2 1 ... 2 3 5 6 - - - - - - - - ]
+
+        F                                 R
+```
 
 Front/Rear, two index will be managed
 
