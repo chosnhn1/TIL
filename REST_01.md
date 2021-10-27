@@ -22,11 +22,14 @@ A Protocol for Send/Receive Contents through Web
 
 Cookie and Session used for 'pseudo-' state and connect
 
+cf. JWT
+
 
 
 ### HTTP Request Methods
 
 * Define actions towards resources
+* HTTP methods
   * GET
   * POST
   * PUT
@@ -105,6 +108,10 @@ URI is URL and URN
 
 
 # RESTful API
+
+참조
+
+https://velog.io/@kjh03160/%EA%B7%B8%EB%9F%B0-REST-API%EB%A1%9C-%EA%B4%9C%EC%B0%AE%EC%9D%80%EA%B0%80
 
 ## Application Programming Interface: API
 
@@ -201,7 +208,7 @@ if Serialization other than dict: False
 
 Structure or Object Status >> Restructure Format for other Environment
 
-cf. Reserve-serialization
+cf. deserialization
 
 
 
