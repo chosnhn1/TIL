@@ -245,7 +245,7 @@ DOM 선택: Collection
 * type
   * 반응할 이벤트 유형
 * listener
-  * 알림받을 객체
+  * 알림받을 객체 (대개 함수)
 
 
 
