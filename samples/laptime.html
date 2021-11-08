@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lap Time</title>
+  <style>
+    .laptime {
+      background-color: black;
+      color:white;
+    }
+
+    .faster {
+      color: greenyellow;
+    }
+  </style>
+</head>
+<body>
+  <h5>Powered by Ergast API</h5>
+  <div id="app">
+    <input v-model="lap" type="text">
+    <button @click="getLaptime()">get</button>
+    <hr>
+    <div class="laptime">
+      {{ lDriver }}
+      {{ rDriver }}
+      <br>
+      <span :class="{ faster: lFaster}">{{ lLaptime }}</span>
+      <span :class="{ faster: !lFaster}">{{ rLaptime }}</span>
+      
+    </div>
+
+  </div>
+
+  <!-- Load Vue.js / Axios -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  
+  <!-- Script Goes Here -->
+  <script>
+    const app = new Vue ({
+      el: '#app',
+      data: {
+        lDriver: '',
+        rDriver: '',
+        lap: 3,
+        lLaptime: '',
+        rLaptime: '',
+        lFaster: true
+      },
+      methods: {
+        getLaptime: function () {
+          let vm = this
+          axios.get(`https://ergast.com/api/f1/current/last/laps.json?limit=100`)
+            .then(response => {
+              let lapTable = response.data.MRData.RaceTable.Races[0].Laps[0].Timings
+              vm.lDriver = lapTable[0].driverId
+              vm.lLaptime = lapTable[0].time
+              vm.rDriver = lapTable[1].driverId
+              vm.rLaptime = lapTable[1].time
+              return response
+            })
+            .catch(error => {
+              console.log('Error Occurred.')
+            })
+            .then(response => {
+              let lLapMs = vm.lLaptime.split(':').join('.').split('.')
+              let rLapMs = vm.rLaptime.split(':').join('.').split('.')
+              const lLapMsNum = ((lLapMs[0] * 60000) + (lLapMs[1] * 1000) + lLapMs[2])
+              const rLapMsNum = ((rLapMs[0] * 60000) + (rLapMs[1] * 1000) + rLapMs[2])
+              
+              if (lLapMsNum < rLapMsNum) {
+                vm.lFaster = true
+              } else {
+                vm.lFaster = false
+              }
+            })
+        }
+
+      },
+      computed: {},
+
+    })
+
+  </script>
+
+
+
+</body>
+</html>

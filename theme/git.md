@@ -74,3 +74,9 @@ https://git-scm.com/docs/git-push
 
 ## git pull \<> \<>
 
+
+
+# Appendix
+
+git commit -m --date
+

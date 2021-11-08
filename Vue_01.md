@@ -332,6 +332,18 @@ Rendered DOM을 Vue와 Bind
 
 
 
+#### v-on
+
+엘리먼트에 이벤트 리스너를 연결
+
+약어 @
+
+`v-on:click`> `@click`
+
+
+
+
+
 ### `computed`
 
 * Data based computed attribute
@@ -395,4 +407,12 @@ Rendered DOM을 Vue와 Bind
 # lodash Library
 
 * 모듈성, 성능 및 추가 기능을 제공하는 JavaScript Utility Library
-* 
+
+
+
+
+
+
+
+----
+
