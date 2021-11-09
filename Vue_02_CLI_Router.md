@@ -64,6 +64,10 @@ cf. "SRP" in SOLID
 * Standard Tools for Vue.js Development
 * Provide extension plug-ins, GUI, ES2015 components, ...
 
+```bash
+$ vue create projectname
+```
+
 
 
 
@@ -236,6 +240,10 @@ event는 자동 대소문자 변환 미제공
 * SPA 상에서 routing을 쉽게 개발할 수 있는 기능 제공
 * Official Vue.js Router
 
+```bash
+$ vue add router
+```
+
 
 
 1. Create and Move Project 
@@ -271,11 +279,19 @@ Vue Router >>
 
 ## "router-link"
 
+```html
+<router-link to=""> Home </router-link>
+```
+
 사용자 내비게이션을 가능하게 하는 컴포넌트
 
 목표 경로는 'to' prop으로 지정
 
 HTML5 History mode에서 router-link는 click prevented
+
+get 요청을 보내지 않음
+
+
 
 ## "router-view"
 
@@ -295,9 +311,43 @@ URL은 변경하지만 여전히 SPA로 동작
 
 
 
-### Dynamic Route Matching
+## Routing Methods
+
+### 1. Named Routes
+
+Pass obj to vue-router: prop
+
+```js
+const routes = [
+    ...
+    {
+        name: 'About',
+    }
+]
+```
+
+```vue
+
+<router-link :to="{name: 'Home'}">Home</router-link>
+```
+
+### 2. Navigation by Programming
+
+```javascript
+methods: {
+    moveToHome: function () {
+        this.$router.push({ name: 'Home' })
+    }
+}
+```
+
+
+
+###  3. Dynamic Route Matching
 
 동적 인자 전달 (~ variable routing in Django)
+
+(cf. Redirecting)
 
 ```javascript
 const routes = [
@@ -306,6 +356,13 @@ const routes = [
         name: 'User',
     }
 ]
+```
+
+```html
+<h2>
+    {{ $route.params.userId }}
+</h2>
+<router-link :to="{ name: 'profile', params: { userId: ASDF }}">Profile</router-link>
 ```
 
 동적 인자는 `:`으로 시작
