@@ -66,6 +66,7 @@ cf. trigger >> 특정 동작에 반응해 자동으로 필요한 동작을 실�
   * 1st args are always state
   * Actions call mutations via `commit()`
 * Actions
+  * data fetch and process
   * can have async works
   * receive contexts as args
   * Actions can manipulate all others, but state can only be accessed by mutations
@@ -74,6 +75,8 @@ cf. trigger >> 특정 동작에 반응해 자동으로 필요한 동작을 실�
   * ~ computed
   * results of getters are cached
   * **getters does not change state**
+
+
 
 
 
@@ -93,5 +96,44 @@ cf. trigger >> 특정 동작에 반응해 자동으로 필요한 동작을 실�
 
 
 
+----
 
+
+
+1. Component > (dispatch) > actions
+2. Actions > (commit) > mutations
+3. Mutations >> state
+
+
+
+----
+
+Spread Syntax
+
+
+
+
+
+# Getters
+
+
+
+
+
+# Component Binding Helper
+
+* mapState
+  * computed와 state mapping
+* mapGetters
+* mapActions
+* mapMutations
+* (createNamespaceHelpers)
+
+
+
+## LocalStorage
+
+`vuex-persistedstate`
+
+Vuex state를 자동으로 LocalStorage에 저장해주는 라이브러리
 
