@@ -1,0 +1,3 @@
+헤헤... 안녕!
+you can write to file using i key (insert mode)
+to exit, quit insert mode by esc and use :wq
