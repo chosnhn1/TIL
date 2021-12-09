@@ -111,7 +111,7 @@ Cookie, Session in state-less Web
 
 
 
-## Json Web Token: JWT
+## JSON Web Token: JWT
 
 * JSON 포맷을 활용한 안전한 정보교환 표준 포맷
 
@@ -128,8 +128,11 @@ Data + 인증 정보
 
 
 
-* HTML, HTTP 환경에서 사용하기 용이
+* Session 인증 방식에 비해 HTML, HTTP 환경에서 사용하기 용이
+  * Session: Server should store session info
+  * JWT: Authentication can be done with JWT - Client side. 
 * 인증수단 자체의 보안 수준이 높음
+  * Any changes of elements => change of the token
 * JSON 범용성
 * Server Memory에 정보를 저장하지 않아 Server 자원 절약 가능
 
@@ -137,18 +140,17 @@ Data + 인증 정보
 
 ## JWT Structure
 
-. 연산자를 통한 구분
+Three parts divided by `.` operators
 
-Header.Payload.Signature
-
-
+`Header.Payload.Signature`
 
 * Header
   * type and hashing algorithm
 * Payload
   * data of token
+  * A payload has 1 or many claims (fraction of data)
 * Signature
-  * encoding value and hash
+  * add two (header & payload) encoding values, and hashed by private key
 
 
 
@@ -175,6 +177,10 @@ Logout?
 
 
 참조: Hashing
+
+
+
+----
 
 
 
