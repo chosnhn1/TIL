@@ -45,21 +45,19 @@ NGINX가 해당 설정을 읽기 전까지는 로그 작성이 이루어지므�
 # 실수 5: `proxy_buffering off`
 
 
-
 # 실수 6: `if` 잘못 사용하기
-
 
 
 # 실수 7: 과도한 상태 체크 Health Check
 
 
+# 실수 8: Metrics에 안전하지 않은 접근
+
+해결책 예시
+1. HTTP Basic Auth
+2. allow / deny 명령어
 
 
+# 실수 9: 동일 /24 CIDR 블록으로 오는 트래픽들에 대해 ip_hash 사용
 
-# 실수 8: 
-
-
-
-# 실수 9: 
-
-# 실수 10: Upstream 활용하지 않기
+# 실수 10: Upstream 활용하지 않기 
