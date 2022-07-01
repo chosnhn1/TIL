@@ -5,7 +5,6 @@
 ["Vim in 100 Seconds" by Fireship](https://youtu.be/-txKSRn0qeA)
 
 
-
 Quick Commands
 
 * `:q` `:q!` `:qw`
@@ -21,6 +20,5 @@ Quick Commands
 * `+p`: paste
 * `:w` : write
 * `:!`: run command
-
 
 

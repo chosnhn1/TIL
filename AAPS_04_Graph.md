@@ -106,6 +106,7 @@ V가 1000개가 넘어가면 Adjacent List가 좋을 것
 
 
 
+
 ### 저장 예시
 
 ```python
