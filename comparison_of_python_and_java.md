@@ -1,6 +1,7 @@
 # Java만이 가지는 특이점
 
 * Java Virtual Machine: Java를 어떤 기기에서도 실행할 수 있도록 하는 가상 머신
+* JVM으로 인한 Multi-platform supports
 
 # Python과의 공통점
 
